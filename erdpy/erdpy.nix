@@ -15,7 +15,6 @@ python3.pkgs.buildPythonApplication rec {
   '';
 
   checkInputs = [ ];
-  nativeBuildInputs = with python3.pkgs; [ pycryptodomex prettytable bottle toml requests cryptography ];
   propagatedBuildInputs = with python3.pkgs; [ setuptools pynacl pycryptodomex prettytable bottle toml requests cryptography ];
 
   meta = with lib; {

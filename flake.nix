@@ -13,10 +13,14 @@
             inherit system;
             overlays = [ (import ./erdpy/python-packages.nix) ];
           };
+          erdpy = import ./erdpy/default.nix { inherit pkgs; };
         in
         {
           nixpkgs.overlays = [ ];
-          defaultPackage = import ./erdpy/default.nix { inherit pkgs; };
+          defaultPackage = erdpy;
+          devShell = pkgs.mkShell {
+            buildInputs = [ erdpy ];
+          };
         }
       );
 
